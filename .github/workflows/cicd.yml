@@ -42,4 +42,4 @@ jobs:
 
       - name: Run Docker Container
         run: |
-          docker-compose -f test.yml --env-file .env  up -d
+          docker-compose -f test.yml --env-file /home/dalia/Desktop/ejemplo_CICD/.env  up -d
