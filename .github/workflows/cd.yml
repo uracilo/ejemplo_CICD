@@ -1,0 +1,24 @@
+name: Pull and Run Docker Image
+
+on:
+  push:
+    branches:
+      - prd
+
+jobs:
+  pull-and-run:
+    runs-on: self-hosted
+    environment: test
+
+    steps:
+      - name: Pull Docker Image
+        run: |
+          docker pull ${{ secrets.DOCKERHUB_USERNAME }}/flask-mysql:latest
+
+      - name: Stop and remove all  Docker Containers
+        run: |
+          docker-compose down 
+
+      - name: Run Docker Container
+        run: |
+          docker-compose -f prd.yml up -d 
