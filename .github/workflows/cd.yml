@@ -14,11 +14,15 @@ jobs:
       - name: Pull Docker Image
         run: |
           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/flask-mysql:latest
+      
+      - name: Stop and remove all  Docker Containers
+        run: |
+          docker-compose -f prd.yml build 
 
       - name: Stop and remove all  Docker Containers
         run: |
-          docker-compose down 
+          docker-compose -f prd.yml down 
 
       - name: Run Docker Container
         run: |
-          docker-compose -f prd.yml up -d 
+          docker-compose -f prd.yml --env-file .env  up -d
