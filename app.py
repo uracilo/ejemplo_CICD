@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def home():
     print("Home route accessed")
-    return "desde el nuevo commit!!!"
+    return "hello, world desde el pipeline"
 
 init_db()
 
