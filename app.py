@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 init_db()
 
-@app.route('/')
+@app.route('/minuevaruta')
 def home():
     print("Home route accessed")
     return "hello, world desde el pipeline"
