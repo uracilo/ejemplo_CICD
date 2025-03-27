@@ -4,12 +4,12 @@ from db import init_db, get_db
 app = Flask(__name__)
 
 
+init_db()
+
 @app.route('/')
 def home():
     print("Home route accessed")
     return "hello, world desde el pipeline"
-
-init_db()
 
 @app.route('/tasks', methods=['GET'])
 def get_tasks():
